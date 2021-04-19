@@ -1,5 +1,4 @@
 from tkinter import *
-from tkinter import ttk # Possibly use to fix buttons with invisible text until clicked
 
 window = Tk()
 window.title('Book Library')

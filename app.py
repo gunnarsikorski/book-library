@@ -31,4 +31,13 @@ isbn_input = StringVar()
 entry4 = Entry(window, textvariable = isbn_input)
 entry4.grid(row=1, column=3)
 
+list1 = Listbox(window, height=6, width=35)
+list1.grid(row=2, column=0, rowspan=6, columnspan=2)
+
+sb = Scrollbar(window)
+sb.grid(row=2, column=2, rowspan=6)
+
+list1.configure(yscrollcommand=sb.set)
+sb.configure(command=list1.yview)
+
 window.mainloop()

@@ -17,7 +17,7 @@ def insert(title, author, year, isbn):
 def view():
     conn = sqlite3.connect('books.db')
     cur = conn.cursor()
-    cur.execute("SELECT * FROM book")
+    cur.execute("SELECT title, author, year, isbn FROM book")
     rows = cur.fetchall()
     conn.close()
     return rows
@@ -48,4 +48,4 @@ def delete(id):
 
 connect()
 
-# print(view())
+print(view())

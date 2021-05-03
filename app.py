@@ -1,6 +1,7 @@
 from tkinter import *
-import backend
+from backend import Database
 
+db = Database()
 
 def get_selected_row(event):
     try:
@@ -25,29 +26,29 @@ def view_command():
     entry2.delete(0, END)
     entry3.delete(0, END)
     entry4.delete(0, END)
-    for row in backend.view():
+    for row in db.view():
         # END is where it will add the next row of data and so on
         list1.insert(END, row)
 
 
 def search_command():
     list1.delete(0, END)
-    for row in backend.search(title_input.get(), author_input.get(), year_input.get(), isbn_input.get()):
+    for row in db.search(title_input.get(), author_input.get(), year_input.get(), isbn_input.get()):
         list1.insert(END, row)
 
 
 def add_command():
-    backend.insert(title_input.get(), author_input.get(),
+    db.insert(title_input.get(), author_input.get(),
                    year_input.get(), isbn_input.get())
     view_command()
 
 
 def update_command():
-    backend.update(selected_tuple[0], title_input.get(), author_input.get(), year_input.get(), isbn_input.get())
+    db.update(selected_tuple[0], title_input.get(), author_input.get(), year_input.get(), isbn_input.get())
 
 
 def delete_command():
-    backend.delete(selected_tuple[0])
+    db.delete(selected_tuple[0])
 
 
 window = Tk()
